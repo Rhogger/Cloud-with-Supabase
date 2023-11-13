@@ -3,10 +3,10 @@ import Header from '../components/Header';
 
 function Uploading() {
   return (
-    <>
+    <div className='flex flex-col h-screen'>
       <Header></Header>
 
-      <main className='flex flex-col justify-center items-center gap-7 h-screen'>
+      <main className='flex flex-col flex-grow justify-center items-center gap-7'>
         <h1 className='text-4xl font-bold'>Save ur images</h1>
 
         <label
@@ -22,13 +22,14 @@ function Uploading() {
           type='file'
           name='upload'
           id='upload'
+          multiple
         />
 
         <button className='text-xl font-semibold py-3 px-8 bg-purple-500 border-2 border-purple-700 hover:bg-purple-700 focus:bg-purple-700 focus:outline-0 rounded-2xl mt-4'>
           Send
         </button>
       </main>
-    </>
+    </div>
   );
 }
 

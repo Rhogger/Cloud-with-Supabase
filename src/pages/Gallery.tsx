@@ -1,13 +1,15 @@
-import * as auth from '../auth/auth';
+import Header from '../components/Header';
 
 function Gallery() {
   return (
-    <>
-      <main className='flex flex-col justify-center items-center gap-7 h-screen'>
+    <div className='flex flex-col h-screen'>
+      <Header />
+
+      <main className='flex flex-col flex-grow justify-center items-center gap-7'>
         <h1 className='text-4xl font-bold'>Your images</h1>
 
         <article>
-          {auth.media.map((media) => {
+          {/* {auth.media.map((media) => {
             return (
               <>
                 <div>
@@ -18,10 +20,10 @@ function Gallery() {
                 </div>
               </>
             );
-          })}
+          })} */}
         </article>
       </main>
-    </>
+    </div>
   );
 }
 

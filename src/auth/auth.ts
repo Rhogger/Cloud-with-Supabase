@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import supabase from '../supabase';
+import supabase from '../lib/supabase';
 import { FileObject } from '@supabase/storage-js/src/lib/types';
 
 const [userId, setUserId] = useState('');
@@ -22,7 +22,7 @@ const getUser = async () => {
   }
 };
 
-async function uploadImage(e: ChangeEvent<HTMLInputElement>) {
+async function uploadImage(e: ChangeEvent<HTMLInputElement>, userId: string) {
   let files = e.target.files;
 
   if (files && files.length > 0) {
@@ -32,14 +32,14 @@ async function uploadImage(e: ChangeEvent<HTMLInputElement>) {
       .from('files-upload')
       .upload(userId + '/' + uuidv4(), file);
 
-    if (data) getMedia();
+    if (data) getMedia(userId);
     else console.error(error);
   } else {
     console.warn('Nenhum arquivo selecionado!');
   }
 }
 
-async function getMedia() {
+async function getMedia(userId: string) {
   const { data, error } = await supabase.storage
     .from('files-upload')
     .list(userId + '/', {
@@ -59,10 +59,12 @@ const signOut = async () => {
   supabase.auth.signOut();
 };
 
-const getData = useEffect(() => {
-  getUser();
-  getMedia();
-}, [userId]);
+function updateData(userId: string) {
+  useEffect(() => {
+    getUser();
+    getMedia(userId);
+  }, [userId]);
+}
 
 export {
   userId,
@@ -71,7 +73,7 @@ export {
   setMedia,
   getUser,
   getMedia,
-  getData,
+  updateData,
   uploadImage,
   signOut,
 };

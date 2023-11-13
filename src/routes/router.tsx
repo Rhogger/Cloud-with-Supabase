@@ -8,15 +8,13 @@ const router = createBrowserRouter([
     path: '/',
     element: <Authentication />,
   },
-
   {
-    path: '/uploading',
+    path: '/upload',
     element: <Uploading />,
   },
-
   {
     path: '/gallery',
-    element: <Gallery></Gallery>,
+    element: <Gallery />,
   },
 ]);
 
