@@ -1,29 +1,41 @@
 import { Auth } from '@supabase/auth-ui-react';
 import supabase from '../lib/supabase';
 import defaultTheme from '../themes/defaultTheme';
-import Header from '../components/Header';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 
 function Authentication() {
   const navigate = useNavigate();
+  const [isSignedIn, setIsSignedIn] = useState<boolean>();
 
   useEffect(() => {
-    const { data: authListener } = supabase.auth.onAuthStateChange((event) => {
-      if (event === 'SIGNED_IN') {
-        navigate('/upload');
-      }
-    });
+    const verifySession = async () => {
+      const { data, error } = await supabase.auth.getSession();
 
-    return () => {
-      authListener?.subscription.unsubscribe();
+      if (error) {
+        console.error('error: ' + error);
+      }
+
+      if (data.session) {
+        console.log(data);
+        console.log(data.session);
+
+        setIsSignedIn(true);
+      } else {
+      }
     };
+
+    verifySession();
+
+    if (isSignedIn) {
+      navigate('/upload');
+    }
   }, [navigate]);
+
+  console.log(isSignedIn);
 
   return (
     <div className='flex flex-col h-screen'>
-      <Header />
-
       <main className='flex flex-grow justify-center items-center'>
         <Auth
           supabaseClient={supabase}
@@ -40,6 +52,11 @@ function Authentication() {
       </main>
     </div>
   );
+  // : (
+  //   <>
+  //     <h1>Nao to logado</h1>
+  //   </>
+  // );
 }
 
 export default Authentication;

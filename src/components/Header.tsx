@@ -1,4 +1,18 @@
+import { useNavigate } from 'react-router-dom';
+import supabase from '../lib/supabase';
+
 function Header() {
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    const { error } = await supabase.auth.signOut(); // Realiza o logout
+    if (!error) {
+      navigate('/');
+    } else {
+      console.error('Erro ao fazer logout:', error.message);
+    }
+  };
+
   return (
     <header className='flex justify-between items-center px-5 py-3'>
       <h1 className='text-xl font-bold'>Data Cloud</h1>
@@ -14,11 +28,11 @@ function Header() {
           className='text-base font-medium hover:text-purple-300 focus:text-purple-300 focus:outline-0'>
           Gallery
         </a>
-        <a
-          href='#'
-          className='text-base font-medium hover:text-purple-300 focus:text-purple-300 focus:outline-0'>
+        <button
+          className='text-base font-medium hover:text-purple-300 focus:text-purple-300 focus:outline-0'
+          onClick={handleSignOut}>
           Sign Out
-        </a>
+        </button>
       </nav>
     </header>
   );

@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Uploading from '../pages/Uploading';
+import Upload from '../pages/Upload';
 import Authentication from '../pages/Authentication';
 import Gallery from '../pages/Gallery';
+import ProtectedRoute from '../components/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -10,11 +11,19 @@ const router = createBrowserRouter([
   },
   {
     path: '/upload',
-    element: <Uploading />,
+    element: (
+      <ProtectedRoute>
+        <Upload />,
+      </ProtectedRoute>
+    ),
   },
   {
     path: '/gallery',
-    element: <Gallery />,
+    element: (
+      <ProtectedRoute>
+        <Gallery />
+      </ProtectedRoute>
+    ),
   },
 ]);
 
