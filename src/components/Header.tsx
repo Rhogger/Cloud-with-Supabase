@@ -20,16 +20,16 @@ function Header() {
       <nav className='flex gap-7'>
         <a
           href='/upload'
-          className='text-base font-medium hover:text-purple-300 focus:text-purple-300 focus:outline-0'>
+          className='text-base font-medium hover:text-purple-600 focus:text-purple-600 focus:outline-0 transition-colors'>
           Upload
         </a>
         <a
           href='/gallery'
-          className='text-base font-medium hover:text-purple-300 focus:text-purple-300 focus:outline-0'>
+          className='text-base font-medium hover:text-purple-600 focus:text-purple-600 focus:outline-0 transition-colors'>
           Gallery
         </a>
         <button
-          className='text-base font-medium hover:text-purple-300 focus:text-purple-300 focus:outline-0'
+          className='text-base font-medium hover:text-purple-600 focus:text-purple-600 focus:outline-0 transition-colors'
           onClick={handleSignOut}>
           Sign Out
         </button>

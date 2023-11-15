@@ -39,6 +39,15 @@ function Gallery() {
     else console.error(error);
   }
 
+  async function handleMediaClick(event: React.MouseEvent<HTMLDivElement>) {
+    const imgElement = event.target as HTMLImageElement;
+    const name = imgElement.id;
+
+    await supabase.storage.from('files-upload').remove([`${userId}/${name}`]);
+
+    // Faça o que precisar com a src da imagem clicada
+  }
+
   useEffect(() => {
     getUser();
     getMedia();
@@ -53,10 +62,14 @@ function Gallery() {
         <article className='w-4/5 flex flex-wrap gap-8 justify-center'>
           {media.map((media) => {
             return (
-              <div className='bg-zinc-400 border rounded-lg w-56 flex items-center justify-center'>
+              <div
+                className='bg-zinc-400/10 border rounded-lg w-56 flex items-center justify-center p-2'
+                key={media.id}
+                onClick={handleMediaClick}>
                 <img
-                  className=''
+                  className='w-full h-full object-cover cursor-pointer'
                   src={`https://tfuefxkmrjkzebejzxpx.supabase.co/storage/v1/object/public/files-upload/${userId}/${media.name}`}
+                  id={`${media.name}`}
                   alt=''
                 />
               </div>

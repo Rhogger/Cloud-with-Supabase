@@ -3,6 +3,7 @@ import Upload from '../pages/Upload';
 import Authentication from '../pages/Authentication';
 import Gallery from '../pages/Gallery';
 import ProtectedRoute from '../components/ProtectedRoute';
+import Image from '../pages/Image';
 
 const router = createBrowserRouter([
   {
@@ -11,19 +12,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/upload',
-    element: (
-      <ProtectedRoute>
-        <Upload />,
-      </ProtectedRoute>
-    ),
+    element: <Upload />,
   },
   {
     path: '/gallery',
-    element: (
-      <ProtectedRoute>
-        <Gallery />
-      </ProtectedRoute>
-    ),
+    element: <Gallery />,
+  },
+  {
+    path: '/gallery/:id',
+    element: <Image />,
   },
 ]);
 
