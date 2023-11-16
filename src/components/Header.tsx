@@ -14,7 +14,7 @@ function Header() {
   };
 
   return (
-    <header className='flex justify-between items-center px-5 py-3'>
+    <header className='flex justify-between items-center px-5 py-3 border-b-2 border-zinc-500/20'>
       <h1 className='text-xl font-bold'>Data Cloud</h1>
 
       <nav className='flex gap-7'>

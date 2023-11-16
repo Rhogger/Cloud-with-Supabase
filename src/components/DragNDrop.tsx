@@ -5,7 +5,7 @@ import {
   ChangeEvent,
   ChangeEventHandler,
 } from 'react';
-import PlusIcon from '../assets/icons/plus-circle.svg';
+import { PlusCircle } from '@phosphor-icons/react';
 
 type DragNDropProps = {
   onChange: ChangeEventHandler<HTMLInputElement> | undefined;
@@ -60,16 +60,22 @@ const DragNDrop = ({ onChange }: DragNDropProps) => {
     <div className='flex items-center justify-center w-96' ref={drop}>
       <label
         htmlFor='upload'
-        className='flex flex-col justify-center items-center gap-4 w-full h-48 border-2 border-white/40 hover:border-white border-dashed rounded-2xl cursor-pointer hover:bg-zinc-700/30 transition-colors'>
-        <img src={PlusIcon} alt='Arrow Icon' className='w-14' />
+        className='flex flex-col justify-center items-center gap-4 w-full h-56 border-2 border-white/40 hover:border-white border-dashed rounded-2xl cursor-pointer hover:bg-zinc-700/30 transition-colors'>
+        <PlusCircle size={50} color='#A855F7' />
 
         <h2 className='text-lg text-zinc-300'>
           Click to <strong>upload</strong> or drag and drop
         </h2>
 
+        <p className='text-sm text-zinc-400'>
+          Accepted files:{' '}
+          <span className='font-medium'>PNG, JPG, JPEG, SVG, GIF.</span>
+        </p>
+
         <input
           className='hidden w-full h-full'
           type='file'
+          accept='image/jpg, image/svg/, image/jpeg, image/gif, image/png'
           name='upload'
           id='upload'
           multiple
