@@ -15,15 +15,14 @@
     "@supabase/auth-ui-react": "^0.4.6",
     "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/supabase-js": "^2.38.4",
-    "@types/node": "^20.9.0",
     "dotenv": "^16.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-drag-drop-files": "^2.3.10",
     "react-router-dom": "^6.18.0",
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
+    "@types/node": "^20.9.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
