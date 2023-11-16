@@ -1,38 +1,19 @@
 import { Auth } from '@supabase/auth-ui-react';
 import supabase from '../lib/supabase';
 import defaultTheme from '../themes/defaultTheme';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Authentication() {
   const navigate = useNavigate();
-  const [isSignedIn, setIsSignedIn] = useState<boolean>();
 
   useEffect(() => {
-    const verifySession = async () => {
-      const { data, error } = await supabase.auth.getSession();
-
-      if (error) {
-        console.error('error: ' + error);
+    supabase.auth.onAuthStateChange((event) => {
+      if (event == 'SIGNED_IN') {
+        navigate('/upload');
       }
-
-      if (data.session) {
-        console.log(data);
-        console.log(data.session);
-
-        setIsSignedIn(true);
-      } else {
-      }
-    };
-
-    verifySession();
-
-    if (isSignedIn) {
-      navigate('/upload');
-    }
+    });
   }, [navigate]);
-
-  console.log(isSignedIn);
 
   return (
     <div className='flex flex-col h-screen'>

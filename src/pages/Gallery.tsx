@@ -20,7 +20,7 @@ function Gallery() {
       if (user !== null) {
         setUserId(user.id);
       } else {
-        setUserId('');
+        navigate('/');
       }
     } catch (e) {
       console.error(e);

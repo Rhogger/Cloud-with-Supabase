@@ -3,10 +3,12 @@ import Header from '../components/Header';
 import supabase from '../lib/supabase';
 import { v4 as uuidv4 } from 'uuid';
 import DragNDrop from './../components/DragNDrop';
+import { useNavigate } from 'react-router-dom';
 
 function Upload() {
   const [userId, setUserId] = useState('');
   const [selectedFile, setSelectedFile] = useState<FileList | null>(null);
+  const navigate = useNavigate();
 
   const getUser = async () => {
     try {
@@ -17,7 +19,7 @@ function Upload() {
       if (user !== null) {
         setUserId(user.id);
       } else {
-        setUserId('');
+        navigate('/');
       }
     } catch (e) {
       console.error(e);
