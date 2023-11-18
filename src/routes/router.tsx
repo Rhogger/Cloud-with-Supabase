@@ -2,10 +2,14 @@ import { createBrowserRouter } from 'react-router-dom';
 import Upload from '../pages/Upload';
 import Authentication from '../pages/Authentication';
 import Gallery from '../pages/Gallery';
-// import ProtectedRoute from '../components/ProtectedRoute';
 import Image from '../pages/Image';
+import Error404 from '../pages/errors/Error404';
+import { ErrorBoundary } from './../classes/ErrorBoundary';
 
 const router = createBrowserRouter([
+  {
+    errorElement: <Error404 />,
+  },
   {
     path: '/',
     element: <Authentication />,
@@ -20,7 +24,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/gallery/:id',
-    element: <Image />,
+    element: (
+      <ErrorBoundary>
+        <Image />,
+      </ErrorBoundary>
+    ),
   },
 ]);
 

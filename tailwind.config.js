@@ -6,9 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        placeholder: "url('assets/images/placeholder.png')"
-      }
     },
   },
   plugins: [],

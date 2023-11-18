@@ -58,7 +58,6 @@ function Gallery() {
 
     navigate(`./${id}`, {
       state: {
-        userId,
         name,
       },
     });
