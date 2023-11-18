@@ -1,27 +1,56 @@
-# React + TypeScript + Vite
+<h1 align="center">Título</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+[Projeto](#projeto)
+&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+[Tecnologias](#tecnologias)
+&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+[Licença](#license)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
 
-## Expanding the ESLint configuration
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<br>
 
-- Configure the top-level `parserOptions` property like this:
+<div align="center">
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+![Preview](assets/images/Preview.png)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+</div>
+
+<hr>
+<br>
+<br>
+
+## 💻 Projeto <a name = "projeto"></a>
+
+Nesse projeto o objetivo era criar um bucket no supabase e fazer o envio de imagens para a nuvem.
+
+Fiz a autenticação da aplicação e ela segue um modelo de galeria, podendo fazer upload de imagem, visualização e exclusão.
+
+<br>
+<br>
+
+## 🚀 Tecnologias <a name = "tecnologias"></a>
+
+- TypeScript
+- Vite
+- React
+- React Router
+- React Spinners
+- Supabase
+- Tailwind
+- Phosphor Icons
+
+<br>
+<br>
+
+## 🔒 Licença
+
+Esse projeto está sob a licença MIT.
+
+<hr>
