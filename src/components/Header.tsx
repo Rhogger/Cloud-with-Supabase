@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import supabase from '../lib/supabase';
 
 function Header() {
@@ -18,16 +18,16 @@ function Header() {
       <h1 className='text-xl font-bold'>Data Cloud</h1>
 
       <nav className='flex gap-7'>
-        <a
-          href='/upload'
+        <Link
+          to='/upload'
           className='text-base font-medium hover:text-purple-600 focus:text-purple-600 focus:outline-0 transition-colors'>
           Upload
-        </a>
-        <a
-          href='/gallery'
+        </Link>
+        <Link
+          to='/gallery'
           className='text-base font-medium hover:text-purple-600 focus:text-purple-600 focus:outline-0 transition-colors'>
           Gallery
-        </a>
+        </Link>
         <button
           className='text-base font-medium hover:text-purple-600 focus:text-purple-600 focus:outline-0 transition-colors'
           onClick={handleSignOut}>
